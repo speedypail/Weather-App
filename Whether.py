@@ -3,15 +3,15 @@ import requests, json
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton
 from PyQt5.QtCore import Qt
 
-# Weather app class using PyQt5
+
 class WeatherApp(QWidget):
     def __init__(self):
         super().__init__()
         
-        # Setting up the window
+       
         self.setWindowTitle("Colorful Weather App")
         self.setFixedSize(400, 300)
-        self.setStyleSheet("background-color: #2d2d2d;")  # Dark background
+        self.setStyleSheet("background-color: #2d2d2d;")  
 
         
         self.layout = QVBoxLayout()
@@ -23,24 +23,24 @@ class WeatherApp(QWidget):
         self.city_input.setStyleSheet("background-color: #fff; color: #000; font-size: 18px; padding: 10px;")
         self.layout.addWidget(self.city_input)
 
-        # Search button
+        
         self.search_button = QPushButton("Get Weather", self)
         self.search_button.setFixedHeight(40)
         self.search_button.setStyleSheet("background-color: #4CAF50; color: white; font-size: 18px;")
         self.search_button.clicked.connect(self.get_weather)
         self.layout.addWidget(self.search_button)
 
-        # Label to display weather result
+        
         self.result_label = QLabel("", self)
         self.result_label.setAlignment(Qt.AlignCenter)
         self.result_label.setStyleSheet("color: white; font-size: 16px; padding: 10px;")
         self.layout.addWidget(self.result_label)
 
-        # Set layout
+        
         self.setLayout(self.layout)
 
     def get_weather(self):
-        # Fetch the weather information
+        
         city = self.city_input.text()
         if city:
             api_key = "20f34a4af93f6f1a8e5abc53c3f2b46c"  
